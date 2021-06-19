@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysqldb
+    restart: unless-stopped
+    environment:
+      -  MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql_volume:/var/lib/mysql"
+
+  php:
+    build:
+      context: ./
+    container_name: phpserver
+    restart: unless-stopped
+    depends_on:
+      - db
+    volumes:
+      - ./zoot:/var/www/html/zoot
+    ports:
+      - "80:80"
+    privileged: true
+
+volumes:
+  mysql_volume:

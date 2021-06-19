@@ -1,0 +1,18 @@
+# Read the documentation: https://symfony.com/doc/master/bundles/FOSRestBundle/index.html
+fos_rest:
+  param_fetcher_listener:  true
+  allowed_methods_listener:  true
+  body_listener:
+    enabled: true
+    decoders:
+      json: fos_rest.decoder.json
+  view:
+    view_response_listener: true
+    formats:
+      json: true
+  format_listener:
+    rules:
+      - { path: ^/v1, prefer_extension: false, fallback_format: json, priorities: [ json ] }
+      - { path: ^/, priorities: ['html', '*/*'], fallback_format: html, prefer_extension: true }
+  body_converter:
+    enabled: true

@@ -1,0 +1,51 @@
+
+
+                        <div class="col-10" style="background-color: rgb(127, 214, 255);">
+                            <div class="row">
+                                <div class="row justify-content-center">
+                                    <div id="content">
+                                        <div class="row">
+                                            <div class="col-12 my-5 text-center display-6">
+                                                    Wizyta
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center pb-5">
+                                            <div class="col-4 justify-content-md-center">
+                                                <div class="row">
+                                                    <select class="form-select m-2" aria-label="Default select example">
+                                                        <option selected>Zwierzak</option>
+                                                        {%  for animal in animals %}
+                                                        <option value="{{ animal.id|e }}">{{ animal.name|e }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="row">
+                                                    <select class="form-select m-2" aria-label="Default select example">
+                                                        <option selected>Termin</option>
+                                                        <option value="1">02-07-2021</option>
+                                                        <option value="2">03-07-2021</option>
+                                                        <option value="3">04-06-2021</option>
+                                                    </select>
+                                                </div>
+{#                                                <div class="row">#}
+{#                                                    <select class="form-select m-2" aria-label="Default select example">#}
+{#                                                        <option selected>Specjalizacja</option>#}
+{#                                                        <option value="1">Chirurg</option>#}
+{#                                                        <option value="2">Dermatolog</option>#}
+{#                                                        <option value="3">Internista</option>#}
+{#                                                    </select>#}
+{#                                                </div>#}
+                                                <div class="row">
+                                                    <select class="form-select m-2" aria-label="Default select example">
+                                                        <option selected>Weterynarz</option>
+                                                        {%  for vet in vets %}
+                                                            <option value="{{ vet.id|e }}">{{ vet.username|e }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
